@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import './model/point.model.dart';
 
 void main() {
@@ -14,6 +16,22 @@ void main() {
 
   //use distanceTo methode
   print(p1.distanceTo(p2).toStringAsFixed(2));
+  //use toJson methode
+  print(p1.toJson());
+  //convert to json
+  print(json.encode(p1.toJson()));
+  //--
+  JsonEncoder jsonEncoder=JsonEncoder.withIndent("   ");
+  print(jsonEncoder.convert(p1.toJson()));
+
+  Map<String, dynamic> data = new Map();
+  data['x']=34;
+  data['y']=55;
+  Point p3=Point.fromJson(data);
+  print("p3 : ${p3.toString()}");
+
+  Point p4=Point.fromJson({'x':66,'y':44});
+  print("p4 : ${p4.toString()}");
 
 
   //p1 c'est un object immuable (because of finale) c'eat a dire que en fois en instancier en peux pas les modifier aprée
