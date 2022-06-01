@@ -7,7 +7,7 @@ class Point {
   //double? _z; // ? signifier que optionnel
   //Point(this.x,this.y);
   //constructor avec argument nommé (Named Argument Constructor)
-  Point({required this.x,required this.y});
+  const Point({required this.x,required this.y});
   //constructeur nommé (Named Constructor)
   Point.fromArray(List<double> data):
       x=data[0], y=data[1];
