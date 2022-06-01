@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Point {
   //quent vous avez un attribute qui commence par underscore '_' ça signifier que private
   final double x;
@@ -9,6 +11,12 @@ class Point {
   //constructeur nommé (Named Constructor)
   Point.fromArray(List<double> data):
       x=data[0], y=data[1];
+
+  double distanceTo(Point p){
+    double w=x-p.x;
+    double h=y-p.y;
+    return sqrt(w*w+h+h);
+  }
 
   @override
   String toString() {

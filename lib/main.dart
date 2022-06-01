@@ -12,6 +12,9 @@ void main() {
   Point p2=Point.fromArray([22,55]);
   print(p2.toString());
 
+  //use distanceTo methode
+  print(p1.distanceTo(p2).toStringAsFixed(2));
+
 
   //p1 c'est un object immuable (because of finale) c'eat a dire que en fois en instancier en peux pas les modifier aprée
   //dans flutter tous les widget sont immutable
