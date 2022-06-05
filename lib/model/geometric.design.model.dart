@@ -40,15 +40,17 @@ class GeometricDesign {
     file.writeAsStringSync(toJson());
   }
 
+  GeometricDesign();
+
   GeometricDesign.fromFile(String fileName){
     File file = File(fileName);
     String data=file.readAsStringSync();
     Map<String, dynamic> jsonData = json.decode(data);
     List<Shape> shapesList = (jsonData['shapes'] as List).map((item) {
       if(item['type']=='Circle'){
-        double radius=item['radius'];
+        double radius=double.parse(item['radius']);
         Point center=Point.fromJson(item['center']);
-        return Circle(p1: center, p2: Point(x: center.x+radius,y: center+y));
+        return Circle(p1: center, p2: Point(x: center.x+radius,y: center.y));
       }else{
         double W=item['width'];
         double H=item['height'];

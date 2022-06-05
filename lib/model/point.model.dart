@@ -13,7 +13,7 @@ class Point {
       x=data[0], y=data[1];
 
   Point.fromJson(Map<String, dynamic> data):
-      x=data['x'].toDouble(),y=data['y'].toDouble();
+      x=(data['x'] as num).toDouble(),y=(data['y'] as num).toDouble();
 
   double distanceTo(Point p){
     double w=x-p.x;
