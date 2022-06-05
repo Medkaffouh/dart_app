@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:dart_app/model/circle.model.dart';
 import 'package:dart_app/model/shape.model.dart';
 import 'package:dart_app/model/rectangle.model.dart';
@@ -26,9 +29,13 @@ class GeometricDesign {
     }
   }
 
-  Map<String,dynamic> toJson(){
-    return {
-      'shapes': shapes
-    };
+  String toJson(){
+    JsonEncoder jsonEncoder=const JsonEncoder.withIndent("  ");
+    return jsonEncoder.convert({"shapes":shapes});
+  }
+
+  void save(String fileName){
+    File file = File(fileName);
+    file.writeAsStringSync(toJson());
   }
 }
